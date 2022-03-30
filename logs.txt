@@ -1,0 +1,92 @@
+****test********test2*****test3*
+*ffff*
+*fsdfs*
+dsa
+fdsfg
+gr
+dsa
+ggggggggggggg
+0dad
+0dasdad
+0jhgjg
+0kthjthb
+05165289525hello
+0Mega_Super_Cosmo_botdadafaf
+0Mega_Super_Cosmo_botghbdtnCosmo botCosmo bot
+fsdfgsgcvxbd32z
+fsf
+test
+fd-1001582192376
+d-1001582192376
+dafMega_Super_Cosmo_bot
+da{'id': 996049963, 'is_bot': False, 'first_name': 'Igor', 'username': 'i1g2o3r4i', 'last_name': 'Igor', 'language_code': 'ru', 'can_join_groups': None, 'can_read_all_group_messages': None, 'supports_inline_queries': None}
+test{'id': 996049963, 'is_bot': False, 'first_name': 'Igor', 'username': 'i1g2o3r4i', 'last_name': 'Igor', 'language_code': 'ru', 'can_join_groups': None, 'can_read_all_group_messages': None, 'supports_inline_queries': None}
+fdsgi1g2o3r4i
+����i1g2o3r4i
+testi1g2o3r4i
+i1g2o3r4i: Test 1
+i1g2o3r4i: привет
+i1g2o3r4i: аыв
+{'content_type': 'text', 'id': 156, 'message_id': 156, 'from_user': {'id': 996049963, 'is_bot': False, 'first_name': 'Igor', 'username': 'i1g2o3r4i', 'last_name': 'Igor', 'language_code': 'ru', 'can_join_groups': None, 'can_read_all_group_messages': None, 'supports_inline_queries': None}, 'date': 1648636678, 'chat': {'id': -1001582192376, 'type': 'supergroup', 'title': '!FFFFFFFFFffffffff', 'username': None, 'first_name': None, 'last_name': None, 'photo': None, 'bio': None, 'has_private_forwards': None, 'description': None, 'invite_link': None, 'pinned_message': None, 'permissions': None, 'slow_mode_delay': None, 'message_auto_delete_time': None, 'has_protected_content': None, 'sticker_set_name': None, 'can_set_sticker_set': None, 'linked_chat_id': None, 'location': None}, 'sender_chat': None, 'forward_from': None, 'forward_from_chat': None, 'forward_from_message_id': None, 'forward_signature': None, 'forward_sender_name': None, 'forward_date': None, 'is_automatic_forward': None, 'reply_to_message': None, 'via_bot': None, 'edit_date': None, 'has_protected_content': None, 'media_group_id': None, 'author_signature': None, 'text': 'выфа', 'entities': None, 'caption_entities': None, 'audio': None, 'document': None, 'photo': None, 'sticker': None, 'video': None, 'video_note': None, 'voice': None, 'caption': None, 'contact': None, 'location': None, 'venue': None, 'animation': None, 'dice': None, 'new_chat_member': None, 'new_chat_members': None, 'left_chat_member': None, 'new_chat_title': None, 'new_chat_photo': None, 'delete_chat_photo': None, 'group_chat_created': None, 'supergroup_chat_created': None, 'channel_chat_created': None, 'migrate_to_chat_id': None, 'migrate_from_chat_id': None, 'pinned_message': None, 'invoice': None, 'successful_payment': None, 'connected_website': None, 'reply_markup': None, 'json': {'message_id': 156, 'from': {'id': 996049963, 'is_bot': False, 'first_name': 'Igor', 'last_name': 'Igor', 'username': 'i1g2o3r4i', 'language_code': 'ru'}, 'chat': {'id': -1001582192376, 'title': '!FFFFFFFFFffffffff', 'type': 'supergroup'}, 'date': 1648636678, 'text': 'выфа'}}: выфа
+None: Сделать кнопку чтобы читала инфу из файла
+None: Добавить меня в чат с ботом
+i1g2o3r4i: Это и есть чат с ботом
+None: Ррро
+None: тест
+None: ну хоть закрепил
+None: я
+None: я же создал своего бота )
+None: кнопки нет - наверное потому, что бота нет?
+None: 👍
+None: реп сделай, если скучно )
+i1g2o3r4i: Чуть позже, но могу тебе код скинуть, надо?
+None: я бы в код повтыкал
+None: сегодня не горит
+None: с кнопкой збс 👍👍👍
+i1g2o3r4i: import telebot
+from telebot import types
+
+# Экземпляр бота
+bot = telebot.TeleBot('5165289525:AAESx2TR6E6olvLS13ysS5kU9ere8KRNt14')
+
+# Список для логов
+user_logs = []
+
+
+# Старт бота с функциями кнопок
+@bot.message_handler(commands=["start"])
+def start(message, res=False):
+    bot.send_message(message.chat.id, 'First message from bot')
+    url_button(message)
+
+
+# URL кнопка
+def url_button(message):
+    markup = types.InlineKeyboardMarkup()
+    url_button = types.InlineKeyboardButton('youtube', url='https://youtube.com')
+    markup.add(url_button)
+    bot.send_message(message.chat.id, 'Привет, {0.first_name}! Нажми на кнопку'.format(message.from_user),
+                     reply_markup=markup)
+
+
+# Эхо(копия) сообщений от пользователя
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+    bot.send_message(message.chat.id, 'Вы написали: ' + message.text)
+    logs(message)
+
+
+# Запись логов в файл
+def logs(message):
+    # Счетчик строк
+    # number_of_string = 0
+    # for i in user_logs:
+    #     number_of_string += 1
+    #     user_logs.append(message.text)
+
+    with open('logs.txt', 'a', encoding='utf-8') as f:
+        f.write('\n' + str(message.from_user.username) + ': ' + message.text)
+
+
+# Запуск бота
+bot.polling(none_stop=True, interval=0)
