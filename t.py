@@ -1,6 +1,6 @@
 '''
 
-git commit -m "example commit"
+git commit -a -m "example commit"
 
 git push
 '''
