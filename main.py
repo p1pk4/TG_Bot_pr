@@ -1,10 +1,6 @@
 import telebot
 from telebot import types
-import cosmo_bot_db
-from cosmo_bot_db import register_user
-
-# Экземпляр бота
-bot = telebot.TeleBot('5165289525:AAESx2TR6E6olvLS13ysS5kU9ere8KRNt14')
+from config import bot
 
 # Список для логов
 user_logs = []
@@ -15,7 +11,6 @@ user_logs = []
 def start(message, res=False):
     bot.send_message(message.chat.id, 'First message from bot')
     url_button(message)
-    register_user()
 
 
 def url_button(message):
