@@ -1,5 +1,7 @@
 import telebot
 from telebot import types
+import cosmo_bot_db
+from cosmo_bot_db import register_user
 
 # Экземпляр бота
 bot = telebot.TeleBot('5165289525:AAESx2TR6E6olvLS13ysS5kU9ere8KRNt14')
@@ -13,10 +15,11 @@ user_logs = []
 def start(message, res=False):
     bot.send_message(message.chat.id, 'First message from bot')
     url_button(message)
+    register_user()
 
 
-# URL кнопка
 def url_button(message):
+    '''URL кнопка'''
     markup = types.InlineKeyboardMarkup()
     url_button = types.InlineKeyboardButton('youtube', url='https://youtube.com')
     markup.add(url_button)
@@ -33,12 +36,6 @@ def handle_text(message):
 
 # Запись логов в файл
 def logs(message):
-    # Счетчик строк
-    # number_of_string = 0
-    # for i in user_logs:
-    #     number_of_string += 1
-    #     user_logs.append(message.text)
-
     with open('logs.txt', 'a', encoding='utf-8') as f:
         f.write('\n' + str(message.from_user.username) + ': ' + message.text)
 
