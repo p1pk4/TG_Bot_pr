@@ -90,3 +90,10 @@ def logs(message):
 
 # Запуск бота
 bot.polling(none_stop=True, interval=0)
+None: репозиторий пили )
+i1g2o3r4i: остановил бота. Играйся)
+i1g2o3r4i: Позже
+None: имя юзера, чат и тд
+None: https://youtu.be/1Z9GRS6hOME
+i1g2o3r4i: Это что?
+i1g2o3r4i: fs
