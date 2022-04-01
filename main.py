@@ -11,7 +11,7 @@ user_logs = []
 def start(message, res=False):
     url_youtube_button(message)
     buttons_menu(message)
-    url_vk_button(message)
+    url_git_project_button(message)
 
 def url_youtube_button(message):
      '''URL кнопка'''
