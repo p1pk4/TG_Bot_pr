@@ -1,6 +1,4 @@
-from telebot import types
-from config import bot
-
+from bot_buttons import *
 
 # Список для логов
 user_logs = []
@@ -10,47 +8,9 @@ user_logs = []
 @bot.message_handler(commands=["start"])
 def start(message, res=False):
     url_youtube_button(message)
-    buttons_menu(message)
     url_git_project_button(message)
-
-def url_youtube_button(message):
-     '''URL кнопка'''
-     markup = types.InlineKeyboardMarkup()
-     url_button = types.InlineKeyboardButton('YouTube', url='https://www.youtube.com/watch?v=n0Zli_fQeP8')
-     markup.add(url_button)
-     bot.send_message(message.chat.id, 'Привет, {0.first_name}! Нажми на кнопку'.format(message.from_user),
-                      reply_markup=markup)
-
-def url_git_project_button(message):
-     '''URL кнопка'''
-     markup = types.InlineKeyboardMarkup()
-     url_button = types.InlineKeyboardButton('Github Project', url='https://github.com/p1pk4/TG_Bot_pr')
-     markup.add(url_button)
-     bot.send_message(message.chat.id, 'Привет, {0.first_name}! Нажми на кнопку'.format(message.from_user),
-                      reply_markup=markup)
-
-def buttons_menu(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button1 = types.InlineKeyboardButton('💥 Регистрация 💥')
-
-    button2 = types.InlineKeyboardButton('🤖 Группа в ВКонтакте 🤖')
-
-    button3 = types.InlineKeyboardButton('❤ Магазин ❤')
-
-    button4 = types.InlineKeyboardButton('💌 Обратная связь 💌')
-
-    button5 = types.InlineKeyboardButton('ffffffffffff')
-
-    markup.add(button1, button2, button3, button4, button5)
-
-    bot.send_message(message.chat.id, 'Hey, {0.first_name}!'.format(message.from_user), reply_markup=markup)
-
-
-# # Эхо(копия) сообщений от пользователя
-# @bot.message_handler(content_types=['text'])
-# def handle_text(message):
-#     bot.send_message(message.chat.id, 'Вы написали: ' + message.text)
-#     logs(message)
+    buttons_menu(message)
+    # register_button(message)
 
 
 # Запись логов в файл
