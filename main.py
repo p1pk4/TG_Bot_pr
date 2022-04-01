@@ -1,5 +1,5 @@
 from bot_buttons import *
-
+from users_db import start_registration
 # Список для логов
 user_logs = []
 
@@ -11,6 +11,7 @@ def start(message, res=False):
     url_git_project_button(message)
     buttons_menu(message)
     # register_button(message)
+    start_registration(message)
 
 
 # Запись логов в файл

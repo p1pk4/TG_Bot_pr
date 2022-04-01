@@ -1,6 +1,7 @@
 from config import bot
 from cosmo_bot_db import register_user
 from telebot import types
+from users_db import start_registration
 
 
 def url_youtube_button(message):
@@ -26,7 +27,11 @@ def buttons_menu(message):
     button3 = types.InlineKeyboardButton('❤ Магазин ❤')
     button4 = types.InlineKeyboardButton('💌 Обратная связь 💌')
     button5 = types.InlineKeyboardButton('ffffffffffff')
+
     register_button = types.InlineKeyboardButton('💥 Регистрация 💥')
+    if message.text == '💥 Регистрация 💥':
+        start_registration()
+        bot.send_message(message.chat.id, 'Вы зарегистрировались в базе данных!')
 
     markup.add(button2, button3, button4, button5, register_button)
     bot.send_message(message.chat.id, 'Hey, {0.first_name}!'.format(message.from_user), reply_markup=markup)
