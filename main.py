@@ -21,10 +21,10 @@ def url_youtube_button(message):
      bot.send_message(message.chat.id, 'Привет, {0.first_name}! Нажми на кнопку'.format(message.from_user),
                       reply_markup=markup)
 
-def url_vk_button(message):
+def url_git_project_button(message):
      '''URL кнопка'''
      markup = types.InlineKeyboardMarkup()
-     url_button = types.InlineKeyboardButton('VK', url='https://www.vk.com/feed')
+     url_button = types.InlineKeyboardButton('Github Project', url='https://github.com/p1pk4/TG_Bot_pr')
      markup.add(url_button)
      bot.send_message(message.chat.id, 'Привет, {0.first_name}! Нажми на кнопку'.format(message.from_user),
                       reply_markup=markup)
