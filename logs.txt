@@ -104,3 +104,10 @@ i1g2o3r4i: f
 i1g2o3r4i: f
 i1g2o3r4i: fd
 i1g2o3r4i: g
+None: asdfas
+None: asdfasdf
+i1g2o3r4i: dfs
+None: блять
+None: скинь скрин с проектом из pycharm
+None: я в директории
+None: питон видит
