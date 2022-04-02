@@ -2,7 +2,7 @@ import config
 import sqlite3
 
 
-@config.bot.message_handler(commands=['st'])
+# @config.bot.message_handler(commands=['st'])
 def start_registration(message):
     connect = sqlite3.connect('users_from_tg.db')
     cursor = connect.cursor()
@@ -12,7 +12,6 @@ def start_registration(message):
         first_name,
         last_name        
     )""")
-
     connect.commit()
 
     user_info = [message.chat.id, message.chat.first_name, message.chat.last_name]

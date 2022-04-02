@@ -1,5 +1,7 @@
 from bot_buttons import *
 from users_db import start_registration
+
+
 # Список для логов
 user_logs = []
 
@@ -10,8 +12,9 @@ def start(message, res=False):
     url_youtube_button(message)
     url_git_project_button(message)
     buttons_menu(message)
-    # register_button(message)
+    register_button(message)
     start_registration(message)
+    random_button(message)
 
 
 # Запись логов в файл

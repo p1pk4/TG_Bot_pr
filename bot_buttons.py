@@ -1,5 +1,6 @@
+import random
+
 from config import bot
-from cosmo_bot_db import register_user
 from telebot import types
 from users_db import start_registration
 
@@ -26,20 +27,23 @@ def buttons_menu(message):
     button2 = types.InlineKeyboardButton('🤖 Группа в ВКонтакте 🤖')
     button3 = types.InlineKeyboardButton('❤ Магазин ❤')
     button4 = types.InlineKeyboardButton('💌 Обратная связь 💌')
-    button5 = types.InlineKeyboardButton('ffffffffffff')
+    rand_button = types.InlineKeyboardButton('Random number')
+    reg_button = types.InlineKeyboardButton('Регистрация')
 
-    register_button = types.InlineKeyboardButton('💥 Регистрация 💥')
-    if message.text == '💥 Регистрация 💥':
-        start_registration()
-        bot.send_message(message.chat.id, 'Вы зарегистрировались в базе данных!')
-
-    markup.add(button2, button3, button4, button5, register_button)
+    markup.add(button2, button3, button4, rand_button, reg_button)
     bot.send_message(message.chat.id, 'Hey, {0.first_name}!'.format(message.from_user), reply_markup=markup)
 
 
-# def register_button(message):
-#     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#     register_button = types.InlineKeyboardButton('💥 Регистрация 💥')
-#     markup.add(register_button)
-#     bot.send_message(message.chat.id, 'register start', reply_markup=markup)
-#     # register_user()
+@bot.message_handler(content_types=['text'])
+def register_button(message):
+    """ Когда пользователь нажимает на кнопку '💥 Регистрация 💥', его id добавляется в бд """
+    if message.chat.type == 'private':
+        if message.text == 'Регистрация':
+            start_registration(message)
+            bot.send_message(message.chat.id, 'Вы зарегистрировались в базе данных!')
+
+
+def random_button(message):
+    if message.chat.type == 'private':
+        if message.text == 'Random number':
+            bot.send_message(message.text, 'Your number: ' + str(random.randint(0, 1000)))
